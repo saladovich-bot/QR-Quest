@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>QR Quest</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #0d0d1a;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 15px;
+            min-height: 100vh;
+        }
+
+        .main-box {
+            width: 90%;
+            max-width: 450px;
+            background-color: #0a0a1f;
+            border: 2px solid #1a6fbf;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+        }
+
+        img.logo {
+            width: 80px;
+            filter: brightness(0) saturate(100%) invert(40%) sepia(80%) saturate(500%) hue-rotate(180deg);
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            color: #3a9fd6;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        p.question {
+            color: #ccc;
+            font-size: 17px;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 12px;
+            background-color: #0d0d1a;
+            border: 1px solid #1a6fbf;
+            border-radius: 8px;
+            color: white;
+            font-size: 14px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #1a6fbf;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover { background-color: #3a9fd6; }
+
+        .result-correct { color: #4CAF50; font-size: 17px; margin-bottom: 20px; }
+        .result-wrong { color: #f44336; font-size: 17px; margin-bottom: 20px; }
+        .already { color: #888; font-size: 15px; margin-bottom: 20px; }
+
+        /* MAP inside the box */
+        .map-title {
+            color: #3a9fd6;
+            font-size: 15px;
+            margin: 15px 0 10px 0;
+        }
+
+        .map-inner {
+            display: flex;
+            gap: 10px;
+        }
+
+        #routeWrapper {
+            position: relative;
+            flex: 2;
+            background: #111133;
+            border-radius: 10px;
+            overflow: hidden;
+            min-height: 220px;
+        }
+
+        #routeSvg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .route-line {
+            stroke: #444;
+            stroke-width: 1.4;
+            stroke-linecap: round;
+        }
+
+        .route-line.correct { stroke: #4CAF50; stroke-width: 2; }
+        .route-line.wrong { stroke: #dc3545; stroke-width: 2; }
+
+        .point {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #1a6fbf;
+            color: white;
+            border: 2px solid white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 11px;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+            z-index: 3;
+        }
+
+        .point.correct { background: #4CAF50; }
+        .point.wrong { background: #dc3545; }
+
+        .side {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            text-align: left;
+        }
+
+        .score-badge {
+            background: #1a6fbf;
+            color: white;
+            border-radius: 8px;
+            padding: 8px;
+            font-size: 13px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 5px;
+        }
+
+        .place-card {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 5px 0;
+            border-bottom: 1px solid #1a6fbf33;
+            font-size: 11px;
+            color: #888;
+        }
+
+        .place-card.correct { color: #4CAF50; }
+        .place-card.wrong { color: #dc3545; }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #1a6fbf;
+            flex-shrink: 0;
+        }
+
+        .dot.correct { background: #4CAF50; }
+        .dot.wrong { background: #dc3545; }
+
+        .letter-badge {
+            margin-left: auto;
+            font-weight: bold;
+            font-size: 12px;
+            color: #4CAF50;
+        }
+
+        #targetWord {
+            margin-top: 10px;
+            padding: 10px;
+            background: #0d3320;
+            border: 2px solid #4CAF50;
+            border-radius: 8px;
+            text-align: center;
+            display: none;
+            font-size: 15px;
+            font-weight: bold;
+            color: #4CAF50;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-box">
+
+        <!-- LOGO + NAME -->
+        <img class="logo" src="/static/logo.png" alt="IT Club">
+        <h2>{{ booth_name }}</h2>
+        <p class="question">{{ question }}</p>
+
+        <!-- RESULT OR FORM -->
+        {% if already_answered %}
+            <div class="already">✅ You already answered this booth!<br>Keep going and scan the next booth! 🚀</div>
+
+        {% elif result == "correct" %}
+            <div class="result-correct">🎉 Correct! +1 point!<br>Keep going and scan the next booth! 🚀</div>
+
+        {% elif result == "wrong" %}
+            <div class="result-wrong">❌ Wrong answer!<br>Keep going and scan the next booth! 🚀</div>
+
+        {% else %}
+            <form method="POST">
+                <input type="text" name="answer" placeholder="Your answer..." required>
+                <button type="submit">Submit ✅</button>
+            </form>
+        {% endif %}
+
+        <!-- MAP - only after answering -->
+        {% if already_answered or result %}
+        <div class="map-title">🗺️ Your Progress Map</div>
+        <div class="map-inner">
+            <div id="routeWrapper">
+                <svg id="routeSvg" viewBox="0 0 100 100" preserveAspectRatio="none"></svg>
+                <div id="pointsLayer"></div>
+            </div>
+            <div class="side">
+                <div class="score-badge">Score: {{ score }} 🏆</div>
+                <div id="placesList"></div>
+                <div id="targetWord"></div>
+            </div>
+        </div>
+
+        <script>
+            const places = {{ map_places | tojson }};
+            const answeredBooths = {{ answered_booths | tojson }};
+            const totalPlaces = places.length;
+
+            const pointsLayer = document.getElementById("pointsLayer");
+            const placesList = document.getElementById("placesList");
+            const routeSvg = document.getElementById("routeSvg");
+
+            function getStatus(booth_id) {
+                if (!(booth_id in answeredBooths)) return "unvisited";
+                return answeredBooths[booth_id] === true ? "correct" : "wrong";
+            }
+
+            function drawLines() {
+                for (let i = 0; i < places.length - 1; i++) {
+                    const from = places[i];
+                    const to = places[i + 1];
+                    const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+                    line.setAttribute("x1", from.x);
+                    line.setAttribute("y1", from.y);
+                    line.setAttribute("x2", to.x);
+                    line.setAttribute("y2", to.y);
+                    line.classList.add("route-line");
+                    const fromStatus = getStatus(from.booth_id);
+                    const toStatus = getStatus(to.booth_id);
+                    if (fromStatus === "correct" && toStatus === "correct") line.classList.add("correct");
+                    else if (fromStatus === "wrong" || toStatus === "wrong") line.classList.add("wrong");
+                    routeSvg.appendChild(line);
+                }
+            }
+
+            function drawPoints() {
+                places.forEach(place => {
+                    const point = document.createElement("div");
+                    point.className = "point";
+                    point.textContent = place.id;
+                    point.style.left = place.x + "%";
+                    point.style.top = place.y + "%";
+                    const status = getStatus(place.booth_id);
+                    if (status !== "unvisited") point.classList.add(status);
+                    pointsLayer.appendChild(point);
+                });
+            }
+
+            function drawSideList() {
+                places.forEach(place => {
+                    const div = document.createElement("div");
+                    const status = getStatus(place.booth_id);
+                    div.className = `place-card ${status !== "unvisited" ? status : ""}`;
+                    const letter = status === "correct" ? `<span class="letter-badge">${place.letter}</span>` : "";
+                    div.innerHTML = `<span class="dot ${status !== "unvisited" ? status : ""}"></span>${place.name}${letter}`;
+                    placesList.appendChild(div);
+                });
+            }
+
+            function checkIfFinished() {
+                const correctCount = places.filter(p => getStatus(p.booth_id) === "correct").length;
+                if (correctCount !== totalPlaces) return;
+                let word = "";
+                for (let i = 1; i <= totalPlaces; i++) {
+                    const place = places.find(p => p.id === i);
+                    if (place) word += place.letter;
+                }
+                const targetWord = document.getElementById("targetWord");
+                targetWord.style.display = "block";
+                targetWord.textContent = "🎉 The word is: " + word;
+            }
+
+            drawLines();
+            drawPoints();
+            drawSideList();
+            checkIfFinished();
+        </script>
+        {% endif %}
+
+    </div>
+
+</body>
+</html>

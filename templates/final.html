@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>QR Quest - Final</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #0d0d1a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: #0a0a1f;
+            border: 2px solid #1a6fbf;
+            border-radius: 15px;
+            padding: 40px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        img {
+            width: 90px;
+            filter: brightness(0) saturate(100%) invert(40%) sepia(80%) saturate(500%) hue-rotate(180deg);
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            color: #3a9fd6;
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            color: #ccc;
+            font-size: 16px;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            background-color: #0d0d1a;
+            border: 1px solid #1a6fbf;
+            border-radius: 8px;
+            color: white;
+            font-size: 14px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #1a6fbf;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #3a9fd6;
+        }
+
+        .score {
+            color: #3a9fd6;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+
+        .result-correct {
+            color: #4CAF50;
+            font-size: 18px;
+            margin-top: 15px;
+        }
+
+        .result-wrong {
+            color: #f44336;
+            font-size: 18px;
+            margin-top: 15px;
+        }
+
+        .already {
+            color: #888;
+            font-size: 16px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="/static/logo.png" alt="IT Club">
+        <h2>{{ booths.final.name }}</h2>
+        <p>{{ booths.final.question }}</p>
+
+        {% if already_answered %}
+            <div class="already">✅ You already answered the final question!<br><br>
+            Your final score: <strong>{{ score }}</strong> 🎉</div>
+
+        {% elif result == "correct" %}
+            <div class="result-correct">🎉 Congratulations {{ name }}!<br><br>
+            You completed the challenge!<br><br>
+            Your final score: <strong>{{ score }}</strong></div>
+
+        {% elif result == "wrong" %}
+            <div class="result-wrong">❌ Wrong answer! Try again.</div>
+            <form method="POST">
+                <input type="text" name="answer" placeholder="Your answer..." required>
+                <button type="submit">Submit ✅</button>
+            </form>
+
+        {% else %}
+            <form method="POST">
+                <input type="text" name="answer" placeholder="Your answer..." required>
+                <button type="submit">Submit ✅</button>
+            </form>
+        {% endif %}
+
+        <div class="score">Your score: {{ score }}</div>
+    </div>
+</body>
+</html>

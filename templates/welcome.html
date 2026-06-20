@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>QR Quest</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #0d0d1a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: #0a0a1f;
+            border: 2px solid #1a6fbf;
+            border-radius: 15px;
+            padding: 40px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .logo-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .logo-row img {
+            width: 90px;
+            filter: brightness(0) saturate(100%) invert(40%) sepia(80%) saturate(500%) hue-rotate(180deg);
+        }
+
+        h1 {
+            color: #3a9fd6;
+            font-size: 28px;
+        }
+
+        h2 {
+            color: white;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            color: #888;
+            font-size: 16px;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .score {
+            color: #3a9fd6;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo-row">
+            <img src="/static/logo.png" alt="IT Club">
+            <h1>QR Quest</h1>
+        </div>
+
+        <h2>Welcome, {{ name }}! 👋</h2>
+        <p>You are registered! Now go visit the booths and scan the QR codes to answer questions.</p>
+        <p>Good luck! 🚀</p>
+
+        <div class="score">Your current score: {{ score }}</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>QR Quest</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #0d0d1a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: #0a0a1f;
+            border: 2px solid #1a6fbf;
+            border-radius: 15px;
+            padding: 40px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .logo-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+
+        .logo-row img {
+            width: 90px;
+            filter: brightness(0) saturate(100%) invert(40%) sepia(80%) saturate(500%) hue-rotate(180deg);
+        }
+
+        h1 {
+            color: #3a9fd6;
+            font-size: 28px;
+        }
+
+        p {
+            color: #888;
+            margin-bottom: 30px;
+            margin-top: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            background-color: #0d0d1a;
+            border: 1px solid #1a6fbf;
+            border-radius: 8px;
+            color: white;
+            font-size: 14px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #1a6fbf;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #3a9fd6;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        document.getElementById("email").addEventListener("input", function() {
+            const email = this.value;
+            const error = document.getElementById("email-error");
+            if (email && !email.endsWith("@student.aaup.edu")) {
+                error.style.display = "block";
+            } else {
+                error.style.display = "none";
+            }
+        });
+    </script>
+    <div class="container">
+        <div class="logo-row">
+            <img src="/static/logo.png" alt="IT Club">
+            <h1>QR Quest</h1>
+        </div>
+        <p>Enter your details to start</p>
+
+        <form method="POST">
+            <input type="text" name="name" placeholder="Full Name" required>
+            <input type="text" name="student_id" placeholder="Student ID (9 digits)" 
+                pattern="\d{9}" title="Student ID must be exactly 9 digits" required>
+            <input type="email" name="email" id="email" placeholder="university@student.aaup.edu"
+                pattern="[a-zA-Z0-9._%+-]+@student\.aaup\.edu"
+                title="Please use your university email @student.aaup.edu" required>
+            <small id="email-error" style="color: #f44336; display: none;">
+                ❌ Please use your university email @student.aaup.edu
+            </small>
+    <button type="submit">Start the Challenge 🚀</button>
+</form>
+    </div>
+</body>
+</html>
