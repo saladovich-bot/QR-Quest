@@ -15,10 +15,8 @@ if creds_json:
     creds = Credentials.from_service_account_info(creds_info, scopes=scopes)
 else:
     creds = Credentials.from_service_account_file("credentials.json", scopes=scopes)
-client = gspread.authorize(creds)
 
-SHEET_ID = "13obhixzF0nnBybnFT40CjdBg_ISe6UV0WjmNxyhoD34"
-spreadsheet = client.open_by_key(SHEET_ID)
+client = gspread.authorize(creds)
 
 def update_leaderboard(participants):
     print("Connecting to sheet...")
