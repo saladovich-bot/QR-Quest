@@ -2,23 +2,28 @@ import gspread
 from google.oauth2.service_account import Credentials
 import os
 import json
+import base64
 
 scopes = [
     "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive"
 ]
 
-creds_json = os.environ.get("GOOGLE_CREDENTIALS")
-print(f"GOOGLE_CREDENTIALS found: {bool(creds_json)}")
-if creds_json:
-    creds_info = json.loads(creds_json)
-    creds = Credentials.from_service_account_info(creds_info, scopes=scopes)
-    print("Using service account info")
-else:
-    creds = Credentials.from_service_account_file("credentials.json", scopes=scopes)
-    print("Using credentials file")
+spreadsheet = None
 
 try:
+    creds_b64 = os.environ.get("GOOGLE_CREDENTIALS_B64")
+    creds_json = os.environ.get("GOOGLE_CREDENTIALS")
+    
+    if creds_b64:
+        creds_info = json.loads(base64.b64decode(creds_b64).decode())
+        creds = Credentials.from_service_account_info(creds_info, scopes=scopes)
+    elif creds_json:
+        creds_info = json.loads(creds_json)
+        creds = Credentials.from_service_account_info(creds_info, scopes=scopes)
+    else:
+        creds = Credentials.from_service_account_file("credentials.json", scopes=scopes)
+    
     client = gspread.authorize(creds)
     SHEET_ID = "13obhixzF0nnBybnFT40CjdBg_ISe6UV0WjmNxyhoD34"
     spreadsheet = client.open_by_key(SHEET_ID)
