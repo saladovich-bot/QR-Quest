@@ -6,7 +6,15 @@ scopes = [
     "https://www.googleapis.com/auth/drive"
 ]
 
-creds = Credentials.from_service_account_file("credentials.json", scopes=scopes)
+import os
+import json
+
+creds_json = os.environ.get("GOOGLE_CREDENTIALS")
+if creds_json:
+    creds_info = json.loads(creds_json)
+    creds = Credentials.from_service_account_info(creds_info, scopes=scopes)
+else:
+    creds = Credentials.from_service_account_file("credentials.json", scopes=scopes)
 client = gspread.authorize(creds)
 
 SHEET_ID = "13obhixzF0nnBybnFT40CjdBg_ISe6UV0WjmNxyhoD34"
