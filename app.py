@@ -3,6 +3,8 @@ from quest import update_leaderboard
 
 app = Flask(__name__)
 app.secret_key = "qr_quest_secret"
+app.config["SESSION_COOKIE_SAMESITE"] = "Lax"
+app.config["SESSION_COOKIE_SECURE"] = True
 
 
 booths = {
