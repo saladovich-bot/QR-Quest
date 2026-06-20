@@ -1,14 +1,13 @@
 from flask import Flask, render_template, request, redirect, session
-from flask_session import Session
 from quest import update_leaderboard
 import os
 
 app = Flask(__name__)
-app.secret_key = "qr_quest_secret"
-app.config["SESSION_TYPE"] = "filesystem"
+app.secret_key = "qr_quest_secret_2024"
 app.config["SESSION_COOKIE_SAMESITE"] = "Lax"
 app.config["SESSION_COOKIE_SECURE"] = True
-Session(app)
+app.config["SESSION_COOKIE_HTTPONLY"] = True
+app.config["PERMANENT_SESSION_LIFETIME"] = 86400
 
 
 booths = {
