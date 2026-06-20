@@ -39,8 +39,13 @@ import os
 
 def load_participants():
     if os.path.exists("data.json"):
-        with open("data.json", "r") as f:
-            return json.load(f)
+        try:
+            with open("data.json", "r") as f:
+                content = f.read()
+                if content.strip():
+                    return json.loads(content)
+        except:
+            pass
     return {}
 
 def save_participants():
