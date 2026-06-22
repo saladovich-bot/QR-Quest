@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request, redirect, session
-from quest import update_leaderboard
 import os
 
 app = Flask(__name__)
@@ -111,25 +110,9 @@ booths = {
     }
 }
 
-import json
-import os
+from quest import update_leaderboard, load_participants_from_sheets, save_participant_to_sheets
 
-def load_participants():
-    if os.path.exists("data.json"):
-        try:
-            with open("data.json", "r") as f:
-                content = f.read()
-                if content.strip():
-                    return json.loads(content)
-        except:
-            pass
-    return {}
-
-def save_participants():
-    with open("data.json", "w") as f:
-        json.dump(participants, f)
-
-participants = load_participants()
+participants = load_participants_from_sheets()
 
 @app.route("/", methods=["GET", "POST"])
 def register():
@@ -185,10 +168,9 @@ def booth(booth_id):
             participants[student_id]["answers"][booth_id] = False
             result = "wrong"
         score = participants[student_id]["score"]
-        save_participants()
-        print("Updating leaderboard...")
+        
+        save_participant_to_sheets(student_id, participants[student_id])
         update_leaderboard(participants)
-        print("Leaderboard updated!")
     
     booth_list = [(bid, bdata) for bid, bdata in booths.items() if bid != "final"]
     cols = 4
@@ -256,7 +238,7 @@ def final():
             participants[student_id]["answers"]["final"] = False
             result = "wrong"
         score = participants[student_id]["score"]
-        save_participants()
+        save_participant_to_sheets(student_id, participants[student_id])
         update_leaderboard(participants)
     
     return render_template("final.html",
