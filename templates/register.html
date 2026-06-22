@@ -42,15 +42,18 @@
             filter: brightness(0) saturate(100%) invert(40%) sepia(80%) saturate(500%) hue-rotate(180deg);
         }
 
-        h1 {
-            color: #3a9fd6;
-            font-size: 28px;
-        }
+        h1 { color: #3a9fd6; font-size: 28px; }
 
         p {
             color: #888;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             margin-top: 8px;
+        }
+
+        .error-msg {
+            color: #f44336;
+            font-size: 14px;
+            margin-bottom: 15px;
         }
 
         input {
@@ -75,42 +78,54 @@
             cursor: pointer;
         }
 
-        button:hover {
-            background-color: #3a9fd6;
+        button:hover { background-color: #3a9fd6; }
+
+        small {
+            color: #f44336;
+            display: none;
+            font-size: 12px;
+            margin-bottom: 10px;
+            display: block;
         }
     </style>
 </head>
 <body>
-    <script>
-        document.getElementById("email").addEventListener("input", function() {
-            const email = this.value;
-            const error = document.getElementById("email-error");
-            if (email && !email.endsWith("@student.aaup.edu")) {
-                error.style.display = "block";
-            } else {
-                error.style.display = "none";
-            }
-        });
-    </script>
     <div class="container">
         <div class="logo-row">
             <img src="/static/logo.png" alt="IT Club">
             <h1>QR Quest</h1>
         </div>
+
         <p>Enter your details to start</p>
+
+        {% if error %}
+        <div class="error-msg">❌ {{ error }}</div>
+        {% endif %}
 
         <form method="POST">
             <input type="text" name="name" placeholder="Full Name" required>
-            <input type="text" name="student_id" placeholder="Student ID (9 digits)" 
+            <input type="text" name="student_id" placeholder="Student ID (9 digits)"
                 pattern="\d{9}" title="Student ID must be exactly 9 digits" required>
             <input type="email" name="email" id="email" placeholder="university@student.aaup.edu"
                 pattern="[a-zA-Z0-9._%+-]+@student\.aaup\.edu"
                 title="Please use your university email @student.aaup.edu" required>
-            <small id="email-error" style="color: #f44336; display: none;">
-                ❌ Please use your university email @student.aaup.edu
-            </small>
-    <button type="submit">Start the Challenge 🚀</button>
-</form>
+            <small id="email-error">❌ Please use your university email @student.aaup.edu</small>
+            <button type="submit">Start the Challenge 🚀</button>
+        </form>
     </div>
+
+    <script>
+        const emailInput = document.getElementById("email");
+        const emailError = document.getElementById("email-error");
+        emailError.style.display = "none";
+
+        emailInput.addEventListener("input", function() {
+            if (this.value && !this.value.endsWith("@student.aaup.edu")) {
+                emailError.style.display = "block";
+            } else {
+                emailError.style.display = "none";
+            }
+        });
+    </script>
 </body>
 </html>
