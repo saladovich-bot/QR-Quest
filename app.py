@@ -14,7 +14,7 @@ booths = {
     "booth_1": {
         "name": "FindIt Campus",
         "question": "What is the main purpose of the FindIt Campus application?",
-        "options": ["LostAndFound", "EventScheduling", "CampusNavigation"],
+        "options": ["CampusNavigation", "EventScheduling", "LostAndFound" "CampusNavigation"],
         "answer": "LostAndFound",
         "letter": "I"
     },
@@ -28,14 +28,14 @@ booths = {
     "booth_3": {
         "name": "Ivestpress",
         "question": "بيستهدف أشخاص مهنتهم في سوق العمل بحاجة لتوثيق الأخبار وتصوير الأحداث، فمن المستخدمون للمنصة؟",
-        "options": ["الصحفيون", "المدرسون", "المحامون"],
+        "options": ["المحامون", "المدرسون", "الصحفيون" ],
         "answer": "الصحفيون",
         "letter": "C"
     },
     "booth_4": {
         "name": "Tracely",
         "question": "رفيقك وقت الضياع ودليلك وقت السفر، بيعرف وين كنت ووين رايح، ودائماً بلحقك... شو هو؟",
-        "options": ["GPS", "Bluetooth", "WiFi"],
+        "options": ["Bluetooth", "GPS", "WiFi"],
         "answer": "GPS",
         "letter": "L"
     },
@@ -49,7 +49,7 @@ booths = {
     "booth_6": {
         "name": "Social Media & Mental Health",
         "question": "ما مجال الذكاء الاصطناعي الذي يندرج المشروع ضمنه؟",
-        "options": ["Deep Learning", "Expert Systems", "Fuzzy Logic"],
+        "options": ["Expert Systems", "Deep Learning", "Fuzzy Logic"],
         "answer": "Deep Learning",
         "letter": "B"
     },
@@ -63,14 +63,14 @@ booths = {
     "booth_8": {
         "name": "Catalyst Lab",
         "question": "كيف يخزن Catalyst Lab التفاعلات المحفوظة (Favourite) لتعمل بدون إنترنت؟",
-        "options": ["Local Storage", "Cloud Storage", "Session Storage"],
+        "options": ["Session Storage", "Cloud Storage", "Local Storage"],
         "answer": "Local Storage",
         "letter": "A"
     },
     "booth_9": {
         "name": "No More Cheaters",
         "question": "What framework is used for the frontend?",
-        "options": ["React", "Angular", "Vue"],
+        "options": ["Vue", "Angular", "React"],
         "answer": "React",
         "letter": "Z"
     },
@@ -84,28 +84,28 @@ booths = {
     "booth_11": {
         "name": "EduNext",
         "question": "ليش سمّينا مشروعنا EduNext؟",
-        "options": ["مستقبل التعليم", "تطوير المناهج", "التعلم الذكي"],
+        "options": ["تطوير المناهج" , "مستقبل التعليم", "التعلم الذكي"],
         "answer": "مستقبل التعليم",
         "letter": "S"
     },
     "booth_12": {
         "name": "Smart Bus System",
         "question": "ما الرمز الذي يمسحه الراكب لدفع أجرة الحافلة إلكترونياً؟",
-        "options": ["QR", "Barcode", "NFC"],
+        "options": ["NFC", "Barcode", "QR"],
         "answer": "QR",
         "letter": "T"
     },
     "booth_13": {
         "name": "رحلة إلى القدس",
         "question": "ما هي العناصر التراثية التي يجمعها اللاعب؟",
-        "options": ["سعف النخيل والقمح وأغصان الزيتون", "الزهور والأعشاب والتوابل", "الحجارة والخزف والفخار"],
+        "options": ["الزهور والأعشاب والتوابل" , "سعف النخيل والقمح وأغصان الزيتون", "الحجارة والخزف والفخار"],
         "answer": "سعف النخيل والقمح وأغصان الزيتون",
         "letter": "A"
     },
     "final": {
         "name": "Final Challenge",
         "question": "What is the name of our university club?",
-        "options": ["IT Club", "Tech Club", "Code Club"],
+        "options": ["Code Club", "Tech Club", "IT Club""Code Club"],
         "answer": "IT Club",
         "letter": "R"
     }
