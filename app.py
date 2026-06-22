@@ -14,7 +14,7 @@ booths = {
     "booth_1": {
         "name": "FindIt Campus",
         "question": "What is the main purpose of the FindIt Campus application?",
-        "options": ["CampusNavigation", "EventScheduling", "LostAndFound" "CampusNavigation"],
+        "options": ["CampusNavigation", "EventScheduling", "LostAndFound"],
         "answer": "LostAndFound",
         "letter": "I"
     },
@@ -105,7 +105,7 @@ booths = {
     "final": {
         "name": "Final Challenge",
         "question": "What is the name of our university club?",
-        "options": ["Code Club", "Tech Club", "IT Club""Code Club"],
+        "options": ["Code Club", "Tech Club", "IT Club"],
         "answer": "IT Club",
         "letter": "R"
     }
