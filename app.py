@@ -11,27 +11,104 @@ app.config["PERMANENT_SESSION_LIFETIME"] = 86400
 
 
 booths = {
-    "booth_1": {"name": "AI & Machine Learning", "question": "What is the most popular programming language for AI?", "answer": "python", "letter": "I"},
-    "booth_2": {"name": "Cybersecurity", "question": "What do we call software that protects your computer from attacks?", "answer": "firewall", "letter": "T"},
-    "booth_3": {"name": "Networking", "question": "What connects computers together in a local network?", "answer": "router", "letter": "C"},
-    "booth_4": {"name": "Database", "question": "What language is used to query databases?", "answer": "sql", "letter": "L"},
-    "booth_5": {"name": "Web Development", "question": "What language styles web pages?", "answer": "css", "letter": "U"},
-    "booth_6": {"name": "Operating Systems", "question": "What is the most popular open source OS?", "answer": "linux", "letter": "B"},
-    "booth_7": {"name": "Cloud Computing", "question": "What does AWS stand for?", "answer": "amazon web services", "letter": "M"},
-    "booth_8": {"name": "Data Science", "question": "What library is used for data analysis in Python?", "answer": "pandas", "letter": "A"},
-    "booth_9": {"name": "Machine Learning", "question": "What is the process of a model learning from data called?", "answer": "training", "letter": "Z"},
-    "booth_10": {"name": "Programming Basics", "question": "What do we call a variable that cannot be changed?", "answer": "constant", "letter": "E"},
-    "booth_11": {"name": "Algorithms", "question": "What sorting algorithm divides the list in half each time?", "answer": "merge sort", "letter": "S"},
-    "booth_12": {"name": "Hardware", "question": "What does CPU stand for?", "answer": "central processing unit", "letter": "T"},
-    "booth_13": {"name": "Software Engineering", "question": "What is the most popular version control system?", "answer": "git", "letter": "A"},
-    "booth_14": {"name": "Mobile Development", "question": "What language is used to develop iOS apps?", "answer": "swift", "letter": "R"},
-    "booth_15": {"name": "Robotics", "question": "What does IoT stand for?", "answer": "internet of things", "letter": "T"},
-    "booth_16": {"name": "Game Development", "question": "What is the most popular game engine?", "answer": "unity", "letter": "S"},
-    "booth_17": {"name": "Blockchain", "question": "What is the first cryptocurrency?", "answer": "bitcoin", "letter": "U"},
-    "booth_18": {"name": "AR & VR", "question": "What does VR stand for?", "answer": "virtual reality", "letter": "P"},
-    "booth_19": {"name": "UI/UX Design", "question": "What does UX stand for?", "answer": "user experience", "letter": "E"},
-    "booth_20": {"name": "Open Source", "question": "What is the most popular open source platform for code hosting?", "answer": "github", "letter": "R"},
-    "final": {"name": "Final Challenge", "question": "What is the name of our university club?", "answer": "it club", "letter": "!"}
+    "booth_1": {
+        "name": "FindIt Campus",
+        "question": "What is the main purpose of the FindIt Campus application?",
+        "options": ["LostAndFound", "EventScheduling", "CampusNavigation"],
+        "answer": "LostAndFound",
+        "letter": "I"
+    },
+    "booth_2": {
+        "name": "نفشة وطن - HomeLand In a Pattern",
+        "question": "ما هي التقنية المستخدمة في المشروع للحفاظ على التراث الفلسطيني رقمياً؟",
+        "options": ["الموشن جرافيك", "الواقع الافتراضي", "الذكاء الاصطناعي"],
+        "answer": "الموشن جرافيك",
+        "letter": "T"
+    },
+    "booth_3": {
+        "name": "Ivestpress",
+        "question": "بيستهدف أشخاص مهنتهم في سوق العمل بحاجة لتوثيق الأخبار وتصوير الأحداث، فمن المستخدمون للمنصة؟",
+        "options": ["الصحفيون", "المدرسون", "المحامون"],
+        "answer": "الصحفيون",
+        "letter": "C"
+    },
+    "booth_4": {
+        "name": "Tracely",
+        "question": "رفيقك وقت الضياع ودليلك وقت السفر، بيعرف وين كنت ووين رايح، ودائماً بلحقك... شو هو؟",
+        "options": ["GPS", "Bluetooth", "WiFi"],
+        "answer": "GPS",
+        "letter": "L"
+    },
+    "booth_5": {
+        "name": "Eyeland",
+        "question": "ما هي التقنية التي تسمح للطفل بتجربة النظارات على وجهه داخل التطبيق؟",
+        "options": ["الواقع المعزز (AR)", "الواقع الافتراضي (VR)", "معالجة الصور (IP)"],
+        "answer": "الواقع المعزز (AR)",
+        "letter": "U"
+    },
+    "booth_6": {
+        "name": "Social Media & Mental Health",
+        "question": "ما مجال الذكاء الاصطناعي الذي يندرج المشروع ضمنه؟",
+        "options": ["Deep Learning", "Expert Systems", "Fuzzy Logic"],
+        "answer": "Deep Learning",
+        "letter": "B"
+    },
+    "booth_7": {
+        "name": "Green AAUP",
+        "question": "ما الشيء الذي يجب على اللاعب إنقاذه؟",
+        "options": ["البيئة", "المدينة", "الحيوانات"],
+        "answer": "البيئة",
+        "letter": "M"
+    },
+    "booth_8": {
+        "name": "Catalyst Lab",
+        "question": "كيف يخزن Catalyst Lab التفاعلات المحفوظة (Favourite) لتعمل بدون إنترنت؟",
+        "options": ["Local Storage", "Cloud Storage", "Session Storage"],
+        "answer": "Local Storage",
+        "letter": "A"
+    },
+    "booth_9": {
+        "name": "No More Cheaters",
+        "question": "What framework is used for the frontend?",
+        "options": ["React", "Angular", "Vue"],
+        "answer": "React",
+        "letter": "Z"
+    },
+    "booth_10": {
+        "name": "No More Cheaters",
+        "question": "What foundational deep learning architecture does the YOLO model rely on?",
+        "options": ["CNN", "RNN", "GAN"],
+        "answer": "CNN",
+        "letter": "E"
+    },
+    "booth_11": {
+        "name": "EduNext",
+        "question": "ليش سمّينا مشروعنا EduNext؟",
+        "options": ["مستقبل التعليم", "تطوير المناهج", "التعلم الذكي"],
+        "answer": "مستقبل التعليم",
+        "letter": "S"
+    },
+    "booth_12": {
+        "name": "Smart Bus System",
+        "question": "ما الرمز الذي يمسحه الراكب لدفع أجرة الحافلة إلكترونياً؟",
+        "options": ["QR", "Barcode", "NFC"],
+        "answer": "QR",
+        "letter": "T"
+    },
+    "booth_13": {
+        "name": "رحلة إلى القدس",
+        "question": "ما هي العناصر التراثية التي يجمعها اللاعب؟",
+        "options": ["سعف النخيل والقمح وأغصان الزيتون", "الزهور والأعشاب والتوابل", "الحجارة والخزف والفخار"],
+        "answer": "سعف النخيل والقمح وأغصان الزيتون",
+        "letter": "A"
+    },
+    "final": {
+        "name": "Final Challenge",
+        "question": "What is the name of our university club?",
+        "options": ["IT Club", "Tech Club", "Code Club"],
+        "answer": "IT Club",
+        "letter": "R"
+    }
 }
 
 import json
@@ -100,7 +177,7 @@ def booth(booth_id):
     
     if request.method == "POST" and not already_answered:
         answer = request.form["answer"]
-        if answer.lower().strip().replace(" ", "") == booths[booth_id]["answer"].replace(" ", ""):
+        if answer == booths[booth_id]["answer"]:
             participants[student_id]["answers"][booth_id] = True
             participants[student_id]["score"] += 1
             result = "correct"
@@ -137,6 +214,7 @@ def booth(booth_id):
     return render_template("question.html",
         booth_name=booths[booth_id]["name"],
         question=booths[booth_id]["question"],
+        options=booths[booth_id]["options"],
         score=score,
         already_answered=already_answered,
         result=result,
@@ -170,7 +248,7 @@ def final():
     
     if request.method == "POST" and not already_answered:
         answer = request.form["answer"]
-        if answer.lower().strip().replace(" ", "") == booths["final"]["answer"].replace(" ", ""):
+        if answer == booths["final"]["answer"]:
             participants[student_id]["answers"]["final"] = True
             participants[student_id]["score"] += 1
             result = "correct"

@@ -14,8 +14,8 @@
         body {
             background-color: #0d0d1a;
             display: flex;
-            justify-content: center;
-            align-items: flex-start;
+            flex-direction: column;
+            align-items: center;
             padding: 15px;
             min-height: 100vh;
         }
@@ -46,38 +46,39 @@
             color: #ccc;
             font-size: 17px;
             margin-bottom: 20px;
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
-        input {
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .option-btn {
             width: 100%;
             padding: 12px;
-            margin-bottom: 12px;
             background-color: #0d0d1a;
-            border: 1px solid #1a6fbf;
-            border-radius: 8px;
             color: white;
-            font-size: 14px;
-        }
-
-        button {
-            width: 100%;
-            padding: 12px;
-            background-color: #1a6fbf;
-            color: white;
-            border: none;
+            border: 2px solid #1a6fbf;
             border-radius: 8px;
-            font-size: 16px;
+            font-size: 15px;
             cursor: pointer;
+            text-align: center;
+            transition: 0.2s;
         }
 
-        button:hover { background-color: #3a9fd6; }
+        .option-btn:hover {
+            background-color: #1a6fbf;
+        }
 
+        .score { color: #3a9fd6; margin-top: 15px; font-size: 16px; }
         .result-correct { color: #4CAF50; font-size: 17px; margin-bottom: 20px; }
         .result-wrong { color: #f44336; font-size: 17px; margin-bottom: 20px; }
         .already { color: #888; font-size: 15px; margin-bottom: 20px; }
 
-        /* MAP inside the box */
+        /* MAP */
         .map-title {
             color: #3a9fd6;
             font-size: 15px;
@@ -106,12 +107,7 @@
             pointer-events: none;
         }
 
-        .route-line {
-            stroke: #444;
-            stroke-width: 1.4;
-            stroke-linecap: round;
-        }
-
+        .route-line { stroke: #444; stroke-width: 1.4; stroke-linecap: round; }
         .route-line.correct { stroke: #4CAF50; stroke-width: 2; }
         .route-line.wrong { stroke: #dc3545; stroke-width: 2; }
 
@@ -141,7 +137,6 @@
             display: flex;
             flex-direction: column;
             gap: 5px;
-            text-align: left;
         }
 
         .score-badge {
@@ -201,15 +196,11 @@
     </style>
 </head>
 <body>
-
     <div class="main-box">
-
-        <!-- LOGO + NAME -->
         <img class="logo" src="/static/logo.png" alt="IT Club">
         <h2>{{ booth_name }}</h2>
         <p class="question">{{ question }}</p>
 
-        <!-- RESULT OR FORM -->
         {% if already_answered %}
             <div class="already">✅ You already answered this booth!<br>Keep going and scan the next booth! 🚀</div>
 
@@ -221,12 +212,16 @@
 
         {% else %}
             <form method="POST">
-                <input type="text" name="answer" placeholder="Your answer..." required>
-                <button type="submit">Submit ✅</button>
+                <div class="options">
+                    {% for option in options %}
+                    <button type="submit" name="answer" value="{{ option }}" class="option-btn">{{ option }}</button>
+                    {% endfor %}
+                </div>
             </form>
         {% endif %}
 
-        <!-- MAP - only after answering -->
+        <div class="score">Your score: {{ score }}</div>
+
         {% if already_answered or result %}
         <div class="map-title">🗺️ Your Progress Map</div>
         <div class="map-inner">
@@ -316,8 +311,6 @@
             checkIfFinished();
         </script>
         {% endif %}
-
     </div>
-
 </body>
 </html>
