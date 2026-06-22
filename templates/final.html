@@ -110,9 +110,19 @@
             Your final score: <strong>{{ score }}</strong> 🎉</div>
 
         {% elif result == "correct" %}
-            <div class="result-correct">🎉 Congratulations {{ name }}!<br><br>
-            You completed the challenge!<br><br>
-            Your final score: <strong>{{ score }}</strong></div>
+    <div class="result-correct">🎉 Congratulations {{ name }}!<br><br>
+    You completed the challenge!<br><br>
+    Your final score: <strong>{{ score }}</strong></div>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script>
+        confetti({
+            particleCount: 200,
+            spread: 90,
+            origin: { y: 0.6 }
+        });
+        setTimeout(() => confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } }), 1000);
+        setTimeout(() => confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } }), 2000);
+    </script>
 
         {% elif result == "wrong" %}
             <div class="result-wrong">❌ Wrong answer! Try again.</div>
