@@ -190,27 +190,27 @@ booths = {
         "question": "ما المجال الذي يركز عليه مشروع VR NutriHealth ؟",
         "options": ["اللياقة البدنية", "التغذية", "الصحة النفسية"],
         "answer": "التغذية",
-        "letter": "YAY"
+        "letter": "D"
     },
     "booth_27": {
-        "name": "VR NutriHealth",
-        "question": "ما المجال الذي يركز عليه مشروع VR NutriHealth ؟",
-        "options": ["اللياقة البدنية", "التغذية", "الصحة النفسية"],
-        "answer": "التغذية",
-        "letter": "YAY"
+        "name": "COGNIHIRE",
+        "question": "هل نتيجة التقييم القصير تؤثر على مستوى المقابله ؟",
+        "options": ["نعم", "لا", "-"],
+        "answer": "نعم",
+        "letter": "A"
     },
     "booth_28": {
-        "name": "VR NutriHealth",
-        "question": "ما المجال الذي يركز عليه مشروع VR NutriHealth ؟",
-        "options": ["اللياقة البدنية", "التغذية", "الصحة النفسية"],
-        "answer": "التغذية",
-        "letter": "YAY"
+        "name": "SmartGive",
+        "question": "Why this project?",
+        "options": ["To make money and increase profits", "To help people", "To compete with other companies in the market"],
+        "answer": "To help people",
+        "letter": "Y"
     },
     "booth_29": {
-        "name": "VR NutriHealth",
-        "question": "ما المجال الذي يركز عليه مشروع VR NutriHealth ؟",
-        "options": ["اللياقة البدنية", "التغذية", "الصحة النفسية"],
-        "answer": "التغذية",
+        "name": "Serve me",
+        "question": "ما هي الخدمات التي يقدمها المشروع؟",
+        "options": ["تقديم دورات في الأمن السيبراني", "تقديم خدمات في تصميم المواقع الإلكترونية", "تقديم خدمات في التسويق الرقمي"],
+        "answer": "تقديم دورات في الأمن السيبراني",
         "letter": "YAY"
     },
     "final": {
