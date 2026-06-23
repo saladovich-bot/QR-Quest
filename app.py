@@ -192,6 +192,27 @@ booths = {
         "answer": "التغذية",
         "letter": "YAY"
     },
+    "booth_27": {
+        "name": "VR NutriHealth",
+        "question": "ما المجال الذي يركز عليه مشروع VR NutriHealth ؟",
+        "options": ["اللياقة البدنية", "التغذية", "الصحة النفسية"],
+        "answer": "التغذية",
+        "letter": "YAY"
+    },
+    "booth_28": {
+        "name": "VR NutriHealth",
+        "question": "ما المجال الذي يركز عليه مشروع VR NutriHealth ؟",
+        "options": ["اللياقة البدنية", "التغذية", "الصحة النفسية"],
+        "answer": "التغذية",
+        "letter": "YAY"
+    },
+    "booth_29": {
+        "name": "VR NutriHealth",
+        "question": "ما المجال الذي يركز عليه مشروع VR NutriHealth ؟",
+        "options": ["اللياقة البدنية", "التغذية", "الصحة النفسية"],
+        "answer": "التغذية",
+        "letter": "YAY"
+    },
     "final": {
         "name": "Final Challenge",
         "question": "متى تأسس ITClub?",
