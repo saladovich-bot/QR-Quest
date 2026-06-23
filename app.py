@@ -18,7 +18,7 @@ booths = {
         "letter": "I"
     },
     "booth_2": {
-        "name": "نفشة وطن - HomeLand In a Pattern",
+        "name": "نقشة وطن - HomeLand In a Pattern",
         "question": "ما هي التقنية المستخدمة في المشروع للحفاظ على التراث الفلسطيني رقمياً؟",
         "options": ["الموشن جرافيك", "الواقع الافتراضي", "الذكاء الاصطناعي"],
         "answer": "الموشن جرافيك",
@@ -57,245 +57,133 @@ booths = {
         "question": "ما الشيء الذي يجب على اللاعب إنقاذه؟",
         "options": ["البيئة", "المدينة", "الحيوانات"],
         "answer": "البيئة",
-        "letter": "M"
+        "letter": "W"
     },
     "booth_8": {
         "name": "Catalyst Lab",
         "question": "كيف يخزن Catalyst Lab التفاعلات المحفوظة (Favourite) لتعمل بدون إنترنت؟",
         "options": ["Session Storage", "Cloud Storage", "Local Storage"],
         "answer": "Local Storage",
-        "letter": "A"
+        "letter": "E"
     },
     "booth_9": {
         "name": "No More Cheaters",
         "question": "What framework is used for the frontend?",
         "options": ["Vue", "Angular", "React"],
         "answer": "React",
-        "letter": "Z"
+        "letter": "L"
     },
     "booth_10": {
         "name": "Secure Chat Messaging System",
         "question": "من الذي مصرح له برؤية محتوى الرسالة في المشروع؟",
         "options": ["لا شيء مما ذكر", "مدير السيرفر", "صاحب التطبيق"],
         "answer": "لا شيء مما ذكر",
-        "letter": "E"
+        "letter": "C"
     },
     "booth_11": {
         "name": "EduNext",
         "question": "ليش سمّينا مشروعنا EduNext؟",
         "options": ["تطوير المناهج" , "مستقبل التعليم", "التعلم الذكي"],
         "answer": "مستقبل التعليم",
-        "letter": "S"
+        "letter": "O"
     },
     "booth_12": {
         "name": "Smart Bus System",
         "question": "ما الرمز الذي يمسحه الراكب لدفع أجرة الحافلة إلكترونياً؟",
         "options": ["NFC", "Barcode", "QR"],
         "answer": "QR",
-        "letter": "T"
+        "letter": "M"
     },
     "booth_13": {
         "name": "رحلة إلى القدس",
         "question": "ما هي العناصر التراثية التي يجمعها اللاعب؟",
         "options": ["الزهور والأعشاب والتوابل" , "سعف النخيل والقمح وأغصان الزيتون", "الحجارة والخزف والفخار"],
         "answer": "سعف النخيل والقمح وأغصان الزيتون",
-        "letter": "A"
+        "letter": "E"
     },
     "booth_14": {
         "name": "Multimedia",
         "question": "أي تنسيق من التالي يُستخدم غالبًا للصور التي تحتاج خلفية شفافة؟",
         "options": ["JPG", "PNG", "MP3"],
         "answer": "PNG",
-        "letter": "B"
+        "letter": "S"
     },
     "booth_15": {
         "name": "IOT Forensics",
         "question": "?ما هي صيغة الملفات المستخرجة من الكاميرات في مشروعنا",
         "options": [".RAW", ".PCAP", "MP4 AVI MOV UVRD"],
         "answer": "MP4 AVI MOV UVRD",
-        "letter": "?"
+        "letter": "T"
     },
     "booth_16": {
         "name": "SDN IDS",
         "question": "ما اسم البروتوكول الذي يستخدمه الكنترولر ONOS للتواصل مع السوتشات و التحكم فيها؟",
         "options": ["OpenFlow", "MQTT", "Zigbee"],
         "answer": "OpenFlow",
-        "letter": "?"
+        "letter": "O"
     },
     "booth_17": {
         "name": "Voxeli.ai",
         "question": "ما الشيء الذي لا يستطيع الذكاء الاصطناعي استنساخه بالكامل؟",
         "options": ["الصورة", "الصوت", "الخيال"],
         "answer": "الخيال",
-        "letter": "?"
+        "letter": "Y"
     },
     "booth_18": {
         "name": "Elixir",
         "question": "ما معنى إلكسير؟",
         "options": ["سُمّ قاتل", "شيء يبعث النشاط أو يمنع الأمل و الحيوية", "معدن نفيس"],
         "answer": "شيء يبعث النشاط أو يمنع الأمل و الحيوية",
-        "letter": "?"
+        "letter": "O"
     },
     "booth_19": {
         "name": "Flomaster Ahmar",
         "question": "Question coming soon...",
         "options": ["السحر", "لا شيء مما ذكر", "الحقيقة وراء السحر"],
         "answer": "الحقيقة وراء السحر",
-        "letter": "?"
+        "letter": "U"
     },
     "booth_20": {
         "name": "UniStudy",
         "question": "ما هو القسم الذي يحوّل الطالب من محرد مستفيد الي شخص مساهم يشارك زملاءه بالملخصات و الامتحانات؟",
         "options": ["قسم المجتمع/قسم مرفقاتي", "قسم الجدول الدراسي", "قسم المحاضرات"],
         "answer": "قسم المجتمع/قسم مرفقاتي",
-        "letter": "?"
+        "letter": "S"
     },
     "booth_21": {
         "name": "Smart Elderly Management System",
         "question": "What is the main goal of our project?",
         "options": ["Control", "Profit", "Care"],
         "answer": "Care",
-        "letter": "?"
+        "letter": "E"
     },
     "booth_22": {
         "name": "File integrity monitoring system",
         "question": "شو الفنكشن الاساسي الي بقوم فيه مشروعنا؟",
         "options": ["نسخ ملفاتك احتياطياً", "مراقبة ملفاتك الحساسة", "تشفير ملفاتك تلقائياً"],
         "answer": "مراقبة ملفاتك الحساسة",
-        "letter": "?"
+        "letter": "N"
     },
     "booth_23": {
         "name": "UniSooq",
         "question": "هل هناك حاجة لسوق مخصص للطلاب فقط؟",
         "options": ["لا", "نعم", "-"],
         "answer": "نعم",
-        "letter": "?"
+        "letter": "I"
     },
     "booth_24": {
-        "name": "Booth name",
-        "question": "Question coming soon...",
-        "options": ["Option A", "Option B", "Option C"],
-        "answer": "Option A",
-        "letter": "?"
-    },
-    "booth_25": {
-        "name": "Booth name",
-        "question": "Question coming soon...",
-        "options": ["Option A", "Option B", "Option C"],
-        "answer": "Option A",
-        "letter": "?"
-    },
-    "booth_26": {
-        "name": "Booth name",
-        "question": "Question coming soon...",
-        "options": ["Option A", "Option B", "Option C"],
-        "answer": "Option A",
-        "letter": "?"
-    },
-    "booth_27": {
-        "name": "Booth name",
-        "question": "Question coming soon...",
-        "options": ["Option A", "Option B", "Option C"],
-        "answer": "Option A",
-        "letter": "?"
-    },
-    "booth_28": {
-        "name": "Booth name",
-        "question": "Question coming soon...",
-        "options": ["Option A", "Option B", "Option C"],
-        "answer": "Option A",
-        "letter": "?"
-    },
-    "booth_29": {
-        "name": "Booth name",
-        "question": "Question coming soon...",
-        "options": ["Option A", "Option B", "Option C"],
-        "answer": "Option A",
-        "letter": "?"
-    },
-    "booth_30": {
-        "name": "Booth name",
-        "question": "Question coming soon...",
-        "options": ["Option A", "Option B", "Option C"],
-        "answer": "Option A",
-        "letter": "?"
-    },
-    "booth_31": {
-        "name": "Booth name",
-        "question": "Question coming soon...",
-        "options": ["Option A", "Option B", "Option C"],
-        "answer": "Option A",
-        "letter": "?"
-    },
-    "booth_32": {
-        "name": "Booth name",
-        "question": "Question coming soon...",
-        "options": ["Option A", "Option B", "Option C"],
-        "answer": "Option A",
-        "letter": "?"
-    },
-    "booth_33": {
-        "name": "Booth name",
-        "question": "Question coming soon...",
-        "options": ["Option A", "Option B", "Option C"],
-        "answer": "Option A",
-        "letter": "?"
-    },
-    "booth_34": {
-        "name": "Booth name",
-        "question": "Question coming soon...",
-        "options": ["Option A", "Option B", "Option C"],
-        "answer": "Option A",
-        "letter": "?"
-    },
-    "booth_35": {
-        "name": "Booth name",
-        "question": "Question coming soon...",
-        "options": ["Option A", "Option B", "Option C"],
-        "answer": "Option A",
-        "letter": "?"
-    },
-    "booth_36": {
-        "name": "Booth name",
-        "question": "Question coming soon...",
-        "options": ["Option A", "Option B", "Option C"],
-        "answer": "Option A",
-        "letter": "?"
-    },
-    "booth_37": {
-        "name": "Booth name",
-        "question": "Question coming soon...",
-        "options": ["Option A", "Option B", "Option C"],
-        "answer": "Option A",
-        "letter": "?"
-    },
-    "booth_38": {
-        "name": "Booth name",
-        "question": "Question coming soon...",
-        "options": ["Option A", "Option B", "Option C"],
-        "answer": "Option A",
-        "letter": "?"
-    },
-    "booth_39": {
-        "name": "Booth name",
-        "question": "Question coming soon...",
-        "options": ["Option A", "Option B", "Option C"],
-        "answer": "Option A",
-        "letter": "?"
-    },
-    "booth_40": {
-        "name": "Booth name",
-        "question": "Question coming soon...",
-        "options": ["Option A", "Option B", "Option C"],
-        "answer": "Option A",
-        "letter": "?"
+        "name": "Journey of Motherhood",
+        "question": "ما اسم التقنية الذكية التي تساعد الأم داخل منصة Journey of Motherhood؟",
+        "options": ["Chatbot", "Dashboard", "Tracker"],
+        "answer": "Chatbot",
+        "letter": "O"
     },
     "final": {
         "name": "Final Challenge",
-        "question": "What is the name of our university club?",
-        "options": ["Code Club", "Tech Club", "IT Club"],
-        "answer": "IT Club",
-        "letter": "R"
+        "question": "متى تأسس ITClub?",
+        "options": ["2023", "2022", "2024"],
+        "answer": "2024",
+        "letter": "Y"
     }
 }
 
