@@ -190,7 +190,7 @@ booths = {
         "question": "ما المجال الذي يركز عليه مشروع VR NutriHealth ؟",
         "options": ["اللياقة البدنية", "التغذية", "الصحة النفسية"],
         "answer": "التغذية",
-        "letter": "R"
+        "letter": "YAY"
     },
     "final": {
         "name": "Final Challenge",
