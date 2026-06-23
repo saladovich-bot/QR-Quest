@@ -41,7 +41,7 @@ def load_participants_from_sheets():
                 "name": row["name"],
                 "email": row["email"],
                 "score": int(row["score"]),
-                "answers": json.loads(row["answers"])
+                "answers": json.loads(row["answers"]) if row["answers"] else {}
             }
         print(f"Loaded {len(participants)} participants from Sheets")
         return participants

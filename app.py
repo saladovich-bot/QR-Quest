@@ -74,10 +74,10 @@ booths = {
         "letter": "Z"
     },
     "booth_10": {
-        "name": "No More Cheaters",
-        "question": "What foundational deep learning architecture does the YOLO model rely on?",
-        "options": ["CNN", "RNN", "GAN"],
-        "answer": "CNN",
+        "name": "Secure Chat Messaging System",
+        "question": "من الذي مصرح له برؤية محتوى الرسالة في المشروع؟",
+        "options": ["لا شيء مما ذكر", "مدير السيرفر", "صاحب التطبيق"],
+        "answer": "لا شيء مما ذكر",
         "letter": "E"
     },
     "booth_11": {
@@ -102,73 +102,73 @@ booths = {
         "letter": "A"
     },
     "booth_14": {
-        "name": "Booth name",
-        "question": "Question coming soon...",
-        "options": ["Option A", "Option B", "Option C"],
-        "answer": "Option A",
-        "letter": "?"
+        "name": "Multimedia",
+        "question": "أي تنسيق من التالي يُستخدم غالبًا للصور التي تحتاج خلفية شفافة؟",
+        "options": ["JPG", "PNG", "MP3"],
+        "answer": "PNG",
+        "letter": "B"
     },
     "booth_15": {
-        "name": "Booth name",
-        "question": "Question coming soon...",
-        "options": ["Option A", "Option B", "Option C"],
-        "answer": "Option A",
+        "name": "IOT Forensics",
+        "question": "?ما هي صيغة الملفات المستخرجة من الكاميرات في مشروعنا",
+        "options": [".RAW", ".PCAP", "MP4 AVI MOV UVRD"],
+        "answer": "MP4 AVI MOV UVRD",
         "letter": "?"
     },
     "booth_16": {
-        "name": "Booth name",
-        "question": "Question coming soon...",
-        "options": ["Option A", "Option B", "Option C"],
-        "answer": "Option A",
+        "name": "SDN IDS",
+        "question": "ما اسم البروتوكول الذي يستخدمه الكنترولر ONOS للتواصل مع السوتشات و التحكم فيها؟",
+        "options": ["OpenFlow", "MQTT", "Zigbee"],
+        "answer": "OpenFlow",
         "letter": "?"
     },
     "booth_17": {
-        "name": "Booth name",
-        "question": "Question coming soon...",
-        "options": ["Option A", "Option B", "Option C"],
-        "answer": "Option A",
+        "name": "Voxeli.ai",
+        "question": "ما الشيء الذي لا يستطيع الذكاء الاصطناعي استنساخه بالكامل؟",
+        "options": ["الصورة", "الصوت", "الخيال"],
+        "answer": "الخيال",
         "letter": "?"
     },
     "booth_18": {
-        "name": "Booth name",
-        "question": "Question coming soon...",
-        "options": ["Option A", "Option B", "Option C"],
-        "answer": "Option A",
+        "name": "Elixir",
+        "question": "ما معنى إلكسير؟",
+        "options": ["سُمّ قاتل", "شيء يبعث النشاط أو يمنع الأمل و الحيوية", "معدن نفيس"],
+        "answer": "شيء يبعث النشاط أو يمنع الأمل و الحيوية",
         "letter": "?"
     },
     "booth_19": {
-        "name": "Booth name",
+        "name": "Flomaster Ahmar",
         "question": "Question coming soon...",
-        "options": ["Option A", "Option B", "Option C"],
-        "answer": "Option A",
+        "options": ["السحر", "لا شيء مما ذكر", "الحقيقة وراء السحر"],
+        "answer": "الحقيقة وراء السحر",
         "letter": "?"
     },
     "booth_20": {
-        "name": "Booth name",
-        "question": "Question coming soon...",
-        "options": ["Option A", "Option B", "Option C"],
-        "answer": "Option A",
+        "name": "UniStudy",
+        "question": "ما هو القسم الذي يحوّل الطالب من محرد مستفيد الي شخص مساهم يشارك زملاءه بالملخصات و الامتحانات؟",
+        "options": ["قسم المجتمع/قسم مرفقاتي", "قسم الجدول الدراسي", "قسم المحاضرات"],
+        "answer": "قسم المجتمع/قسم مرفقاتي",
         "letter": "?"
     },
     "booth_21": {
-        "name": "Booth name",
-        "question": "Question coming soon...",
-        "options": ["Option A", "Option B", "Option C"],
-        "answer": "Option A",
+        "name": "Smart Elderly Management System",
+        "question": "What is the main goal of our project?",
+        "options": ["Control", "Profit", "Care"],
+        "answer": "Care",
         "letter": "?"
     },
     "booth_22": {
-        "name": "Booth name",
-        "question": "Question coming soon...",
-        "options": ["Option A", "Option B", "Option C"],
-        "answer": "Option A",
+        "name": "File integrity monitoring system",
+        "question": "شو الفنكشن الاساسي الي بقوم فيه مشروعنا؟",
+        "options": ["نسخ ملفاتك احتياطياً", "مراقبة ملفاتك الحساسة", "تشفير ملفاتك تلقائياً"],
+        "answer": "مراقبة ملفاتك الحساسة",
         "letter": "?"
     },
     "booth_23": {
-        "name": "Booth name",
-        "question": "Question coming soon...",
-        "options": ["Option A", "Option B", "Option C"],
-        "answer": "Option A",
+        "name": "UniSooq",
+        "question": "هل هناك حاجة لسوق مخصص للطلاب فقط؟",
+        "options": ["لا", "نعم", "-"],
+        "answer": "نعم",
         "letter": "?"
     },
     "booth_24": {
