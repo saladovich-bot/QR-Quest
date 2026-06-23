@@ -101,6 +101,195 @@ booths = {
         "answer": "سعف النخيل والقمح وأغصان الزيتون",
         "letter": "A"
     },
+    "booth_14": {
+        "name": "Booth name",
+        "question": "Question coming soon...",
+        "options": ["Option A", "Option B", "Option C"],
+        "answer": "Option A",
+        "letter": "?"
+    },
+    "booth_15": {
+        "name": "Booth name",
+        "question": "Question coming soon...",
+        "options": ["Option A", "Option B", "Option C"],
+        "answer": "Option A",
+        "letter": "?"
+    },
+    "booth_16": {
+        "name": "Booth name",
+        "question": "Question coming soon...",
+        "options": ["Option A", "Option B", "Option C"],
+        "answer": "Option A",
+        "letter": "?"
+    },
+    "booth_17": {
+        "name": "Booth name",
+        "question": "Question coming soon...",
+        "options": ["Option A", "Option B", "Option C"],
+        "answer": "Option A",
+        "letter": "?"
+    },
+    "booth_18": {
+        "name": "Booth name",
+        "question": "Question coming soon...",
+        "options": ["Option A", "Option B", "Option C"],
+        "answer": "Option A",
+        "letter": "?"
+    },
+    "booth_19": {
+        "name": "Booth name",
+        "question": "Question coming soon...",
+        "options": ["Option A", "Option B", "Option C"],
+        "answer": "Option A",
+        "letter": "?"
+    },
+    "booth_20": {
+        "name": "Booth name",
+        "question": "Question coming soon...",
+        "options": ["Option A", "Option B", "Option C"],
+        "answer": "Option A",
+        "letter": "?"
+    },
+    "booth_21": {
+        "name": "Booth name",
+        "question": "Question coming soon...",
+        "options": ["Option A", "Option B", "Option C"],
+        "answer": "Option A",
+        "letter": "?"
+    },
+    "booth_22": {
+        "name": "Booth name",
+        "question": "Question coming soon...",
+        "options": ["Option A", "Option B", "Option C"],
+        "answer": "Option A",
+        "letter": "?"
+    },
+    "booth_23": {
+        "name": "Booth name",
+        "question": "Question coming soon...",
+        "options": ["Option A", "Option B", "Option C"],
+        "answer": "Option A",
+        "letter": "?"
+    },
+    "booth_24": {
+        "name": "Booth name",
+        "question": "Question coming soon...",
+        "options": ["Option A", "Option B", "Option C"],
+        "answer": "Option A",
+        "letter": "?"
+    },
+    "booth_25": {
+        "name": "Booth name",
+        "question": "Question coming soon...",
+        "options": ["Option A", "Option B", "Option C"],
+        "answer": "Option A",
+        "letter": "?"
+    },
+    "booth_26": {
+        "name": "Booth name",
+        "question": "Question coming soon...",
+        "options": ["Option A", "Option B", "Option C"],
+        "answer": "Option A",
+        "letter": "?"
+    },
+    "booth_27": {
+        "name": "Booth name",
+        "question": "Question coming soon...",
+        "options": ["Option A", "Option B", "Option C"],
+        "answer": "Option A",
+        "letter": "?"
+    },
+    "booth_28": {
+        "name": "Booth name",
+        "question": "Question coming soon...",
+        "options": ["Option A", "Option B", "Option C"],
+        "answer": "Option A",
+        "letter": "?"
+    },
+    "booth_29": {
+        "name": "Booth name",
+        "question": "Question coming soon...",
+        "options": ["Option A", "Option B", "Option C"],
+        "answer": "Option A",
+        "letter": "?"
+    },
+    "booth_30": {
+        "name": "Booth name",
+        "question": "Question coming soon...",
+        "options": ["Option A", "Option B", "Option C"],
+        "answer": "Option A",
+        "letter": "?"
+    },
+    "booth_31": {
+        "name": "Booth name",
+        "question": "Question coming soon...",
+        "options": ["Option A", "Option B", "Option C"],
+        "answer": "Option A",
+        "letter": "?"
+    },
+    "booth_32": {
+        "name": "Booth name",
+        "question": "Question coming soon...",
+        "options": ["Option A", "Option B", "Option C"],
+        "answer": "Option A",
+        "letter": "?"
+    },
+    "booth_33": {
+        "name": "Booth name",
+        "question": "Question coming soon...",
+        "options": ["Option A", "Option B", "Option C"],
+        "answer": "Option A",
+        "letter": "?"
+    },
+    "booth_34": {
+        "name": "Booth name",
+        "question": "Question coming soon...",
+        "options": ["Option A", "Option B", "Option C"],
+        "answer": "Option A",
+        "letter": "?"
+    },
+    "booth_35": {
+        "name": "Booth name",
+        "question": "Question coming soon...",
+        "options": ["Option A", "Option B", "Option C"],
+        "answer": "Option A",
+        "letter": "?"
+    },
+    "booth_36": {
+        "name": "Booth name",
+        "question": "Question coming soon...",
+        "options": ["Option A", "Option B", "Option C"],
+        "answer": "Option A",
+        "letter": "?"
+    },
+    "booth_37": {
+        "name": "Booth name",
+        "question": "Question coming soon...",
+        "options": ["Option A", "Option B", "Option C"],
+        "answer": "Option A",
+        "letter": "?"
+    },
+    "booth_38": {
+        "name": "Booth name",
+        "question": "Question coming soon...",
+        "options": ["Option A", "Option B", "Option C"],
+        "answer": "Option A",
+        "letter": "?"
+    },
+    "booth_39": {
+        "name": "Booth name",
+        "question": "Question coming soon...",
+        "options": ["Option A", "Option B", "Option C"],
+        "answer": "Option A",
+        "letter": "?"
+    },
+    "booth_40": {
+        "name": "Booth name",
+        "question": "Question coming soon...",
+        "options": ["Option A", "Option B", "Option C"],
+        "answer": "Option A",
+        "letter": "?"
+    },
     "final": {
         "name": "Final Challenge",
         "question": "What is the name of our university club?",
