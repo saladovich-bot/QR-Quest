@@ -372,7 +372,7 @@ def booth(booth_id):
             x = 10 + col * 22
         else:
             x = 10 + (cols - 1 - col) * 22
-        y = 10 + row * 15
+        y = 10 + row * 5
         map_places.append({
             "id": i+1,
             "booth_id": bid,
