@@ -4,242 +4,92 @@ import os
 app = Flask(__name__)
 app.secret_key = "qr_quest_secret_2024"
 app.config["SESSION_COOKIE_SAMESITE"] = "Lax"
-app.config["SESSION_COOKIE_SECURE"] = True
+# Локальный запуск по http: должно быть False. Для Railway (https) верни True.
+app.config["SESSION_COOKIE_SECURE"] = False
 app.config["SESSION_COOKIE_HTTPONLY"] = True
 app.config["PERMANENT_SESSION_LIFETIME"] = 86400
 
 
 booths = {
     "booth_1": {
-        "name": "FindIt Campus",
-        "question": "What is the main purpose of the FindIt Campus application?",
-        "options": ["CampusNavigation", "EventScheduling", "LostAndFound"],
-        "answer": "LostAndFound",
-        "letter": "I"
-    },
-    "booth_2": {
-        "name": "نقشة وطن - HomeLand In a Pattern",
-        "question": "ما هي التقنية المستخدمة في المشروع للحفاظ على التراث الفلسطيني رقمياً؟",
-        "options": ["الموشن جرافيك", "الواقع الافتراضي", "الذكاء الاصطناعي"],
-        "answer": "الموشن جرافيك",
-        "letter": "T"
-    },
-    "booth_3": {
-        "name": "Ivestpress",
-        "question": "بيستهدف أشخاص مهنتهم في سوق العمل بحاجة لتوثيق الأخبار وتصوير الأحداث، فمن المستخدمون للمنصة؟",
-        "options": ["المحامون", "المدرسون", "الصحفيون" ],
-        "answer": "الصحفيون",
-        "letter": "C"
-    },
-    "booth_4": {
-        "name": "Tracely",
-        "question": "رفيقك وقت الضياع ودليلك وقت السفر، بيعرف وين كنت ووين رايح، ودائماً بلحقك... شو هو؟",
-        "options": ["Bluetooth", "GPS", "WiFi"],
-        "answer": "GPS",
-        "letter": "L"
-    },
-    "booth_5": {
-        "name": "Eyeland",
-        "question": "ما هي التقنية التي تسمح للطفل بتجربة النظارات على وجهه داخل التطبيق؟",
-        "options": ["الواقع المعزز (AR)", "الواقع الافتراضي (VR)", "معالجة الصور (IP)"],
-        "answer": "الواقع المعزز (AR)",
-        "letter": "U"
-    },
-    "booth_6": {
-        "name": "Social Media & Mental Health",
-        "question": "ما مجال الذكاء الاصطناعي الذي يندرج المشروع ضمنه؟",
-        "options": ["Expert Systems", "Deep Learning", "Fuzzy Logic"],
-        "answer": "Deep Learning",
-        "letter": "B"
-    },
-    "booth_7": {
-        "name": "Green AAUP",
-        "question": "ما الشيء الذي يجب على اللاعب إنقاذه؟",
-        "options": ["البيئة", "المدينة", "الحيوانات"],
-        "answer": "البيئة",
+        "name": "Ice Breaker - Find Someone Who",
+        "question": "ما الهدف الأساسي من لعبة Find Someone Who؟",
+        "options": ["التعارف على أشخاص جدد", "حل أصعب مسألة برمجة", "الفوز بأسرع وقت فقط"],
+        "answer": "التعارف على أشخاص جدد",
         "letter": "W"
     },
-    "booth_8": {
-        "name": "Catalyst Lab",
-        "question": "كيف يخزن Catalyst Lab التفاعلات المحفوظة (Favourite) لتعمل بدون إنترنت؟",
-        "options": ["Session Storage", "Cloud Storage", "Local Storage"],
-        "answer": "Local Storage",
+    "booth_2": {
+        "name": "AI Prompt Battle",
+        "question": "شو المطلوب منك في لعبة AI Prompt Battle؟",
+        "options": ["تصمم موقع إلكتروني", "تكتب وصفاً لـ ChatGPT ليعطيك أفضل صورة", "تكتب كود بلغة Python"],
+        "answer": "تكتب وصفاً لـ ChatGPT ليعطيك أفضل صورة",
         "letter": "E"
     },
-    "booth_9": {
-        "name": "No More Cheaters",
-        "question": "What framework is used for the frontend?",
-        "options": ["Vue", "Angular", "React"],
-        "answer": "React",
+    "booth_3": {
+        "name": "IT Hunting Battle",
+        "question": "كم عدد أفراد الفريق الواحد في IT Hunting Battle؟",
+        "options": ["من 8 إلى 10 طلاب", "طالب واحد فقط", "من 2 إلى 4 طلاب"],
+        "answer": "من 2 إلى 4 طلاب",
         "letter": "L"
     },
-    "booth_10": {
-        "name": "Secure Chat Messaging System",
-        "question": "من الذي مصرح له برؤية محتوى الرسالة في المشروع؟",
-        "options": ["لا شيء مما ذكر", "مدير السيرفر", "صاحب التطبيق"],
-        "answer": "لا شيء مما ذكر",
+    "booth_4": {
+        "name": "Multimedia",
+        "question": "أي امتداد من التالي يُستخدم للأغاني والملفات الصوتية؟",
+        "options": ["PNG", "MP4", "MP3"],
+        "answer": "MP3",
         "letter": "C"
     },
-    "booth_11": {
-        "name": "EduNext",
-        "question": "ليش سمّينا مشروعنا EduNext؟",
-        "options": ["تطوير المناهج" , "مستقبل التعليم", "التعلم الذكي"],
-        "answer": "مستقبل التعليم",
+    "booth_5": {
+        "name": "Artificial Intelligence",
+        "question": "ماذا تعني كلمة AI؟",
+        "options": ["Artificial Intelligence", "Automatic Internet", "Advanced Information"],
+        "answer": "Artificial Intelligence",
         "letter": "O"
     },
-    "booth_12": {
-        "name": "Smart Bus System",
-        "question": "ما الرمز الذي يمسحه الراكب لدفع أجرة الحافلة إلكترونياً؟",
-        "options": ["NFC", "Barcode", "QR"],
-        "answer": "QR",
+    "booth_6": {
+        "name": "IT Majors",
+        "question": "أي تخصص من التالي يهتم بحماية الأنظمة والمعلومات من الاختراق؟",
+        "options": ["Multimedia", "Cybersecurity", "Networks"],
+        "answer": "Cybersecurity",
         "letter": "M"
     },
-    "booth_13": {
-        "name": "رحلة إلى القدس",
-        "question": "ما هي العناصر التراثية التي يجمعها اللاعب؟",
-        "options": ["الزهور والأعشاب والتوابل" , "سعف النخيل والقمح وأغصان الزيتون", "الحجارة والخزف والفخار"],
-        "answer": "سعف النخيل والقمح وأغصان الزيتون",
+    "booth_7": {
+        "name": "IT Majors",
+        "question": "أي تخصص من التالي يهتم ببناء الروبوتات والأجهزة الذكية؟",
+        "options": ["Robotics", "Graphic Design", "Web Hosting"],
+        "answer": "Robotics",
         "letter": "E"
-    },
-    "booth_14": {
-        "name": "Multimedia",
-        "question": "أي تنسيق من التالي يُستخدم غالبًا للصور التي تحتاج خلفية شفافة؟",
-        "options": ["JPG", "PNG", "MP3"],
-        "answer": "PNG",
-        "letter": "S"
-    },
-    "booth_15": {
-        "name": "IOT Forensics",
-        "question": "?ما هي صيغة الملفات المستخرجة من الكاميرات في مشروعنا",
-        "options": [".RAW", ".PCAP", "MP4 AVI MOV UVRD"],
-        "answer": "MP4 AVI MOV UVRD",
-        "letter": "T"
-    },
-    "booth_16": {
-        "name": "SDN IDS",
-        "question": "ما اسم البروتوكول الذي يستخدمه الكنترولر ONOS للتواصل مع السوتشات و التحكم فيها؟",
-        "options": ["OpenFlow", "MQTT", "Zigbee"],
-        "answer": "OpenFlow",
-        "letter": "O"
-    },
-    "booth_17": {
-        "name": "Voxeli.ai",
-        "question": "ما الشيء الذي لا يستطيع الذكاء الاصطناعي استنساخه بالكامل؟",
-        "options": ["الصورة", "الصوت", "الخيال"],
-        "answer": "الخيال",
-        "letter": "Y"
-    },
-    "booth_18": {
-        "name": "Elixir",
-        "question": "ما معنى إلكسير؟",
-        "options": ["سُمّ قاتل", "شيء يبعث النشاط أو يمنع الأمل و الحيوية", "معدن نفيس"],
-        "answer": "شيء يبعث النشاط أو يمنع الأمل و الحيوية",
-        "letter": "O"
-    },
-    "booth_19": {
-        "name": "Flomaster Ahmar",
-        "question": "Question coming soon...",
-        "options": ["السحر", "لا شيء مما ذكر", "الحقيقة وراء السحر"],
-        "answer": "الحقيقة وراء السحر",
-        "letter": "U"
-    },
-    "booth_20": {
-        "name": "UniStudy",
-        "question": "ما هو القسم الذي يحوّل الطالب من محرد مستفيد الي شخص مساهم يشارك زملاءه بالملخصات و الامتحانات؟",
-        "options": ["قسم المجتمع/قسم مرفقاتي", "قسم الجدول الدراسي", "قسم المحاضرات"],
-        "answer": "قسم المجتمع/قسم مرفقاتي",
-        "letter": "S"
-    },
-    "booth_21": {
-        "name": "Smart Elderly Management System",
-        "question": "What is the main goal of our project?",
-        "options": ["Control", "Profit", "Care"],
-        "answer": "Care",
-        "letter": "E"
-    },
-    "booth_22": {
-        "name": "File integrity monitoring system",
-        "question": "شو الفنكشن الاساسي الي بقوم فيه مشروعنا؟",
-        "options": ["نسخ ملفاتك احتياطياً", "مراقبة ملفاتك الحساسة", "تشفير ملفاتك تلقائياً"],
-        "answer": "مراقبة ملفاتك الحساسة",
-        "letter": "N"
-    },
-    "booth_23": {
-        "name": "UniSooq",
-        "question": "هل هناك حاجة لسوق مخصص للطلاب فقط؟",
-        "options": ["لا", "نعم", "-"],
-        "answer": "نعم",
-        "letter": "I"
-    },
-    "booth_24": {
-        "name": "Journey of Motherhood",
-        "question": "ما اسم التقنية الذكية التي تساعد الأم داخل منصة Journey of Motherhood؟",
-        "options": ["Chatbot", "Dashboard", "Tracker"],
-        "answer": "Chatbot",
-        "letter": "O"
-    },
-    "booth_25": {
-        "name": "Soul candles",
-        "question": "ما هو مشروعنا؟",
-        "options": ["هو مشروع تقني لتطوير تطبيق جوال", "هو مشروع إعلامي لإنشاء موقع إلكتروني", "هو مشروع تجاري صغير لنا تم انشاء لوجو + بكج ديزاين + فيديو إعلاني بتقنية الستوب موشن"],
-        "answer": "هو مشروع تجاري صغير لنا تم انشاء لوجو + بكج ديزاين + فيديو إعلاني بتقنية الستوب موشن",
-        "letter": "R"
-    },
-    "booth_26": {
-        "name": "VR NutriHealth",
-        "question": "ما المجال الذي يركز عليه مشروع VR NutriHealth ؟",
-        "options": ["اللياقة البدنية", "التغذية", "الصحة النفسية"],
-        "answer": "التغذية",
-        "letter": "D"
-    },
-    "booth_27": {
-        "name": "COGNIHIRE",
-        "question": "هل نتيجة التقييم القصير تؤثر على مستوى المقابله ؟",
-        "options": ["نعم", "لا", "-"],
-        "answer": "نعم",
-        "letter": "A"
-    },
-    "booth_28": {
-        "name": "SmartGive",
-        "question": "Why this project?",
-        "options": ["To make money and increase profits", "To help people", "To compete with other companies in the market"],
-        "answer": "To help people",
-        "letter": "Y"
-    },
-    "booth_29": {
-        "name": "Serve me",
-        "question": "ما هي الخدمات التي يقدمها المشروع؟",
-        "options": ["تقديم دورات في الأمن السيبراني", "تقديم خدمات في تصميم المواقع الإلكترونية", "تقديم خدمات في التسويق الرقمي"],
-        "answer": "تقديم دورات في الأمن السيبراني",
-        "letter": "YAY"
     },
     "final": {
-        "name": "Final Challenge",
-        "question": "متى تأسس ITClub?",
-        "options": ["2023", "2022", "2024"],
-        "answer": "2024",
-        "letter": "YAY"
-    }
+        "name": "Final",
+        "question": "ما الكلمة التي تكوّنت من الحروف التي جمعتها؟",
+        "options": ["WELCOME", "WELCOMS", "WALCOME"],
+        "answer": "WELCOME"
+    },
 }
 
 from quest import update_leaderboard, load_participants_from_sheets, save_participant_to_sheets
 
 participants = load_participants_from_sheets()
 
+
 @app.route("/", methods=["GET", "POST"])
 def register():
     if "student_id" in session:
-        return redirect("/welcome")
-    
+        if session["student_id"] in participants:
+            return redirect("/welcome")
+        # Устаревший cookie (игрока нет на сервере) - сбрасываем сессию
+        session.clear()
+
     if request.method == "POST":
         name = request.form["name"]
         student_id = request.form["student_id"]
         email = request.form["email"]
-        
+
         session["name"] = name
         session["student_id"] = student_id
         session["email"] = email
-      
+
         if student_id not in participants:
             participants[student_id] = {
                 "name": name,
@@ -247,9 +97,9 @@ def register():
                 "answers": {},
                 "score": 0
             }
-        
+
         return redirect("/welcome")
-    
+
     return render_template("register.html")
 
 
@@ -257,19 +107,19 @@ def register():
 def booth(booth_id):
     if "student_id" not in session:
         return redirect("/")
-    
+
     student_id = session["student_id"]
-    
+
     if student_id not in participants:
         return redirect("/")
-    
-    if booth_id not in booths:
+
+    if booth_id not in booths or booth_id == "final":
         return redirect("/welcome")
-    
+
     score = participants[student_id]["score"]
     already_answered = booth_id in participants[student_id]["answers"]
     result = None
-    
+
     if request.method == "POST" and not already_answered:
         answer = request.form["answer"]
         if answer == booths[booth_id]["answer"]:
@@ -280,24 +130,26 @@ def booth(booth_id):
             participants[student_id]["answers"][booth_id] = False
             result = "wrong"
         score = participants[student_id]["score"]
-        
+
         save_participant_to_sheets(student_id, participants[student_id])
         update_leaderboard(participants)
-    
+
     booth_list = [(bid, bdata) for bid, bdata in booths.items() if bid != "final"]
-    cols = 4
+    cols = 3
+    total_rows = (len(booth_list) + cols - 1) // cols
+    row_step = 70 / (total_rows - 1) if total_rows > 1 else 0
     map_places = []
     for i, (bid, bdata) in enumerate(booth_list):
         row = i // cols
         col = i % cols
-        
+
         if row % 2 == 0:
-            x = 10 + col * 22
+            x = 20 + col * 30
         else:
-            x = 10 + (cols - 1 - col) * 22
-        y = 10 + row * 8
+            x = 20 + (cols - 1 - col) * 30
+        y = 15 + row * row_step
         map_places.append({
-            "id": i+1,
+            "id": i + 1,
             "booth_id": bid,
             "name": bdata["name"],
             "letter": bdata["letter"],
@@ -316,30 +168,34 @@ def booth(booth_id):
         map_places=map_places
     )
 
+
 @app.route("/welcome")
 def welcome():
     if "student_id" not in session:
         return redirect("/")
     student_id = session["student_id"]
+    if student_id not in participants:
+        return redirect("/")
     return render_template("welcome.html",
         name=session["name"],
         score=participants[student_id]["score"]
     )
 
+
 @app.route("/final", methods=["GET", "POST"])
 def final():
     if "student_id" not in session:
         return redirect("/")
-    
+
     student_id = session["student_id"]
-    
+
     if student_id not in participants:
         return redirect("/")
-    
+
     score = participants[student_id]["score"]
     already_answered = "final" in participants[student_id]["answers"]
     result = None
-    
+
     if request.method == "POST" and not already_answered:
         answer = request.form["answer"]
         if answer == booths["final"]["answer"]:
@@ -352,7 +208,7 @@ def final():
         score = participants[student_id]["score"]
         save_participant_to_sheets(student_id, participants[student_id])
         update_leaderboard(participants)
-    
+
     return render_template("final.html",
         booths=booths,
         name=session["name"],
@@ -360,7 +216,6 @@ def final():
         already_answered=already_answered,
         result=result
     )
-
 
 
 if __name__ == "__main__":
